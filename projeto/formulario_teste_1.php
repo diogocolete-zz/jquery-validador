@@ -16,7 +16,8 @@
 	<script type="text/javascript" src="jquery.validacao.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("body").validate();		
+			// parametro passado é o arquivo contendo as definicoes de validacao
+			$("body").validate("jquery.validacao.definicao-pt-br");
 		});
 	</script>
 	
@@ -80,25 +81,25 @@
 
 <br />
 
-<script type="text/javascript" src="teste-email.js"></script>
+<!-- 
 
+ Descomente para testar os validadores customizados
+ 
+ este teste substituio padrao por um validador que apenas retorna true  
+<script type="text/javascript">
+	$(document).ready(function(){
+		// parametro passado é o arquivo contendo as definicoes de validacao
+		$.fn.validate.LoadScript("teste-validador-customizado");
+	});
+</script>
+-->
+
+<script type="text/javascript" src="teste-email.js"></script>
+<script type="text/javascript" src="teste-tempo.js"></script>
 <script type="text/javascript" src="teste-date.js"></script>
 <script type="text/javascript" src="teste-integer.js"></script>
-<!-- 		
-/*	
-	{ns : ":date" , callback : $.fn.validate.isValidDate },
-	{ns: ":integer" , callback : $.fn.validate.isValidInteger },
-	{ns: ":text" , callback : $.fn.validate.isValidText },
-	{ns: ":cpf"  , callback : $.fn.validate.isValidCpf },
-	{ns: ":cnpj" , callback : $.fn.validate.isValidCnpj },
-	{ns: ":email" , callback : $.fn.validate.isValidEmail },
-	{ns: ":time" , callback : $.fn.validate.isValidTempo },
-	{ns: ":money-pt-br" , callback : $.fn.validate.isValidMoeda },
-	{ns: ":radiobox" , callback : $.fn.validate.isValidRadiobox },
-	{ns: ":checkbox" , callback: $.fn.validate.isValidCheckbox }
-*/
-	
- -->
+<script type="text/javascript" src="teste-moeda.js"></script>
+
 
 <div id="area_teste" style="border: solid 1px red;padding: 10px"></div>
 

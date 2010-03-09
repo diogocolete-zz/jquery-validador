@@ -46,6 +46,7 @@ $(document).ready(function(){
 				$("#area_teste").append("<span style='color:red'>Parametro: "+values_test_data_option[option]+" Campo inválido</span><br /> ");
 			}
 		}
+		$("#area_teste").append("<hr />");
 	}
 	$("#area_teste").append("<br><br>");
 });
