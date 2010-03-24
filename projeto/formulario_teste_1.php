@@ -12,21 +12,35 @@
 		}
 	</style>
 	
-	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="jquery.validacao.js"></script>
+	<script type="text/javascript" src="jslib/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="jquery.loader.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			// parametro passado é o arquivo contendo as definicoes de validacao
-			$("body").validate("jquery.validacao.definicao-pt-br");
+
+			// importacao requerida
+			$().Import( "jquery.validacao.js" );
+			
+			// inicia a validacao
+			$().validate(function( oForm ){
+				// funcao sera chamada caso formulario seja invalido
+
+				if( oForm.formNS != "formulario_1" ){
+					alert( 'formulario diferente de formulario_1' );
+				}
+
+				return true;				
+				
+			});
+			
 		});
 	</script>
 	
 </head>
 <body>
 
-<h2>FORMULARIO DE TESTE 1</h2>
+<h2>FORMULARIO DE TESTE 1 - FUNCOES PT-BR</h2>
 
-<form enctype="application/x-www-form-urlencoded" validate:form="formulario_1">
+<form enctype="application/x-www-form-urlencoded" validate:form="formulario_1" action="">
 
 <fieldset>
 	<legend>Dados do Contato</legend>
@@ -41,13 +55,23 @@
 	
 	<br />
 	
+	<label for="cpf">CPF: </label>
+	<input id="cpf" name="cpf" type="text" value="" validate:cpf="true" mask:cpf="true" />
+	
+	<br />
+	
+	<label for="cnpj">CNPJ: </label>
+	<input id="cnpj" name="cnpj" type="text" value="" validate:cpf="true" mask:cnpj="true" />
+	
+	<br />
+	
 	<label for="contato_desc">Descrição</label>
 	<textarea rows="5" cols="15" validate:text="true"></textarea>
 	
 	<br />
 	
 	<label for="contato_telefone">Telefone</label>
-	<input id="contato_telefone" name="contato_telefone" type="text" value="" validate:text="true" />
+	<input id="contato_telefone" name="contato_telefone" type="text" value="" validate:text="true" mask:phone="true" />
 		
 	<br />
 		
@@ -89,11 +113,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		// parametro passado é o arquivo contendo as definicoes de validacao
-		$.fn.validate.LoadScript("teste-validador-customizado");
+		$.fn.Import("teste-validador-customizado");
 	});
 </script>
 -->
-
+<script type="text/javascript" src="teste-cpf.js"></script>
 <script type="text/javascript" src="teste-email.js"></script>
 <script type="text/javascript" src="teste-tempo.js"></script>
 <script type="text/javascript" src="teste-date.js"></script>
