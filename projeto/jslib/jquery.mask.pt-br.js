@@ -34,3 +34,7 @@
 	$.fn.validate.mask.phone = function( inputObject ){
 		$(inputObject.object).mask( "(99) 9999-9999" );
 	};
+	
+	$.fn.validate.mask.cep = function( inputObject ){
+		$(inputObject.object).mask( "99999-999" );
+	};

@@ -9,7 +9,8 @@ $.fn.validate.text.pt_br = {
 		radiobox : "Selecione uma opção",
 		checkbox : "Selecione uma opção",
 		cpf : "CPF Inválido",
-		cnpj : "CNPJ inválido"
+		cnpj : "CNPJ inválido",
+		cep : "Cep inválido"
 	};	
 
 	/**
@@ -144,6 +145,8 @@ $.fn.validate.text.pt_br = {
 	};
 	$.fn.validate.isValidCnpj = function( inputObject ){
 		
+		alert( $.fn.validate.options.language.cnpj );
+		
 		$.fn.validate.message = $.fn.validate.options.language.cnpj;
 		
 		value = $(inputObject.object).val();
@@ -171,6 +174,21 @@ $.fn.validate.text.pt_br = {
 		
 		
 	};
+	
+	$.fn.validate.isValidCep = function(){
+		
+		// Caso o CEP não esteja nesse formato ele é inválido!
+        var objER = /^[0-9]{2}\.[0-9]{3}-[0-9]{3}$/;
+        
+		if(! objER.test( $(inputObject.object).val() ) ){
+			$.fn.validate.message = $.fn.validate.options.language.cep;
+			return false;
+		}else{
+			return true;
+		}
+		
+	};
+	
 	$.fn.validate.isValidText = function( inputObject ){
 				
 		if( !( $(inputObject.object).val() != "" ) ){

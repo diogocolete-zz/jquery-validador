@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 <html 
-	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:validate="http://validator" 
 	xml:lang="pt-br"> 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -10,6 +11,13 @@
 		.input-invalid-information{
 			border: solid 1px red;	
 		}
+		
+		.text-invalid-information{
+			position: relative;
+			font-size: 20px;
+			color: red;
+		}
+		
 	</style>
 	
 	<script type="text/javascript" src="jslib/jquery-1.4.2.min.js"></script>
@@ -23,13 +31,7 @@
 			// inicia a validacao
 			$().validate(function( oForm ){
 				// funcao sera chamada caso formulario seja invalido
-
-				if( oForm.formNS != "formulario_1" ){
-					alert( 'formulario diferente de formulario_1' );
-				}
-
-				return true;				
-				
+				return true;
 			});
 			
 		});
@@ -62,6 +64,11 @@
 	
 	<label for="cnpj">CNPJ: </label>
 	<input id="cnpj" name="cnpj" type="text" value="" validate:cpf="true" mask:cnpj="true" />
+	
+	<br />
+	
+	<label for="cep">CEP: </label>
+	<input id="cep" name="cep" type="text" value="" validate:cep="true" mask:cep="true" />
 	
 	<br />
 	
